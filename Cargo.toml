@@ -1,23 +1,23 @@
 [package]
-name = "apex-rust-singularity"
-version = "206.5.0"
+name = "apex-omega-singularity"
+version = "206.7.0"
 edition = "2021"
 
 [dependencies]
-# Alloy: High-performance successor to ethers-rs
-alloy = { version = "0.1", features = ["full", "rpc-types-eth", "node-bindings", "pubsub"] }
-# REVM: The literal fastest EVM implementation (used by Reth/Foundry)
-revm = { version = "33", features = ["std", "serde", "memory_db"] }
-# Petgraph + Rayon: For parallel 12-hop graph search
+# Alloy: Successor to ethers-rs, 2x faster primitives and faster RPC
+alloy = { version = "0.1", features = ["full", "pubsub", "rpc-types-eth", "signer-keystore"] }
+# REVM: The literal fastest EVM implementation in existence
+revm = { version = "35", features = ["std", "serde", "memory_db"] }
+# Flashbots support for Alloy
+alloy-ethers-type-conversions = "0.1"
+# Performance & Graph math
 petgraph = "0.6"
-rayon = "1.8"
-# Data Structures & Low-latency sync
+rayon = "1.9"
 dashmap = "5.5"
-parking_lot = "0.12"
-core_affinity = "0.8" 
 tokio = { version = "1", features = ["full", "parking_lot"] }
-vader-sentiment = "0.1.0" # AI Sentiment check
-dotenv = "0.15"
+vader-sentiment = "0.1.0"
+core_affinity = "0.8"
+anyhow = "1.0"
 
 [profile.release]
 opt-level = 3
